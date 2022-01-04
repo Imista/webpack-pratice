@@ -36,18 +36,18 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2)$/,
-                use:{
-                    loader: 'url-loader',
-                    options: {
-                        limit: 10000,
-                        mimerype: "aplication/font-woff",
-                        name: "[name].[ext]",
-                        outputPath: "./assets/fonts/",
-                        publicPath: "./assets/fonts/",
-                        esModule: false,
-                    },
-                },
-            },
+                use: {
+                  loader: "url-loader",
+                  options: {
+                    limit: 10000,
+                    mimetype: "application/font-woff",
+                    name: "[name].[ext]",
+                    outputPath: "./assets/fonts/",
+                    publicPath: "./assets/fonts/",
+                    esModule: false,
+                  }
+                }
+            }
         ]
     },
     plugins: [
