@@ -13,17 +13,25 @@ module.exports = {
         extensions: ['.js']
     },
     module: {
-        rules: [{
+        rules: [
+            //Html
+            {
                 test: /\.m?js$/,
                 exclude: /node_module/,
                 use:{
                     loader: 'babel-loader'
                 }
             },
+            //Css
             {
                 test: /\.css$/i,
                 use:[MiniCssExtractPlugin.loader, 
                 'css-loader'],
+            },
+            //Copy
+            {
+                test: /\.png/,
+                type: "asset/resource"
             },
         ]
     },
