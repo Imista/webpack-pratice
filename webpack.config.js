@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -47,7 +48,7 @@ module.exports = {
                 test: /\.(woff|woff2)$/i,  // Tipos de fuentes a incluir
                 type: 'asset/resource',  // Tipo de módulo a usar (este mismo puede ser usado para archivos de imágenes)
                 generator: {
-                filename: 'static/fonts/[hash][ext][query]',  // Directorio de salida
+                filename: 'assets/fonts/[hash][ext][query]',  // Directorio de salida
                 },
             }        
         ]
@@ -74,6 +75,8 @@ module.exports = {
         }),
         //Enviroment
         new Dotenv(),
+        //Clean
+        new CleanWebpackPlugin(),
     ],
     optimization: {
         minimize: true,
